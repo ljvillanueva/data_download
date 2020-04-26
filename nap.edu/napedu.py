@@ -34,4 +34,5 @@ for feed in feeds:
 			else:
 				print("Skipping: {}".format(book_title))
 	except:
+		print("Problem with {}".format(feed))
 		continue
