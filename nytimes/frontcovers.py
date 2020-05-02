@@ -12,8 +12,11 @@ date_array = (first + datetime.timedelta(days=x) for x in range(0, (current-firs
 
 cur_dir = os.getcwd()
 
+#Get settings
+import settings
+
 #Change this dir for the root of the storage
-os.chdir("nytimes")
+os.chdir(settings.nytpath)
 
 for date_object in date_array:
 	cover_url = date_object.strftime("https://static01.nyt.com/images/%Y/%m/%d/nytfrontpage/scannat.pdf")
