@@ -1,0 +1,8 @@
+#!/bin/bash
+# Doanload youtube list
+#
+# ./dl_list.sh [ID_of_list]
+
+#Download YouTube playlist videos in separate directory indexed by video order in a playlist
+youtube-dl -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' https://www.youtube.com/playlist?list=$1
+
