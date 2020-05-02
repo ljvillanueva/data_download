@@ -3,7 +3,7 @@
 # Download NYTimes front covers
 # https://static01.nyt.com/images/YYYY/MM/DD/nytfrontpage/scannat.pdf
 
-import sys.os, datetime, wget
+import sys, os, datetime, wget
  
 #Adapted from https://www.pythonprogramming.in/get-range-of-dates-between-specified-start-and-end-date.html
 first = datetime.datetime.strptime("2012-07-06", "%Y-%m-%d")
