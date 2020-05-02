@@ -6,8 +6,7 @@ import os, subprocess, sys, shutil
 
 import settings
 
-playlists = ['PLAbMhAYRuCUhawCEV2oXZGrienoKTN16X', 
-					'PLej_Gvr1c1MM4hEcyzmT06mGoIqoXHcwo']
+playlists = settings.playlists
 
 shutil.copyfile("dl_list.sh", "{}/dl_list.sh".format(settings.dest))
 os.chdir(settings.dest)
