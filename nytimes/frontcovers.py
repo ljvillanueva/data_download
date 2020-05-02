@@ -3,13 +3,16 @@
 # Download NYTimes front covers
 # https://static01.nyt.com/images/YYYY/MM/DD/nytfrontpage/scannat.pdf
 
-import os, datetime, wget
+import sys.os, datetime, wget
  
 #Adapted from https://www.pythonprogramming.in/get-range-of-dates-between-specified-start-and-end-date.html
 first = datetime.datetime.strptime("2012-07-06", "%Y-%m-%d")
 current = datetime.datetime.today()
 date_array = (first + datetime.timedelta(days=x) for x in range(0, (current-first).days))
 
+cur_dir = os.getcwd()
+
+#Change this dir for the root of the storage
 os.chdir("nytimes")
 
 for date_object in date_array:
@@ -26,3 +29,7 @@ for date_object in date_array:
 	except:
 		continue
 
+
+os.chdir(cur_dir)
+
+sys.exit(0)
