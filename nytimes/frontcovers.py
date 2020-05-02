@@ -25,6 +25,7 @@ for date_object in date_array:
 	if os.path.isdir("{}".format(year_dir)) == False:
 		os.mkdir("{}".format(year_dir))
 	if os.path.isfile("{}/{}.pdf".format(year_dir, file_date)):
+		print("File exists, skipping...")
 		continue
 	print("\nDownloading {} to {}\n".format(cover_url, "{}/{}.pdf".format(year_dir, file_date)))
 	try:
