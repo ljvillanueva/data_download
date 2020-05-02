@@ -19,13 +19,13 @@ for date_object in date_array:
 	cover_url = date_object.strftime("https://static01.nyt.com/images/%Y/%m/%d/nytfrontpage/scannat.pdf")
 	year_dir = date_object.strftime("%Y")
 	file_date = date_object.strftime("%Y-%m-%d")
-	if os.path.isdir("nytimes/{}".format(year_dir)) == False:
-		os.mkdir("nytimes/{}".format(year_dir))
-	if os.isfile("nytimes/{}/{}.pdf".format(year_dir, file_date)):
+	if os.path.isdir("{}".format(year_dir)) == False:
+		os.mkdir("{}".format(year_dir))
+	if os.isfile("{}/{}.pdf".format(year_dir, file_date)):
 		continue
-	print("\nDownloading {} to {}\n".format(cover_url, "nytimes/{}/{}.pdf".format(year_dir, file_date)))
+	print("\nDownloading {} to {}\n".format(cover_url, "{}/{}.pdf".format(year_dir, file_date)))
 	try:
-		wget.download(cover_url, "nytimes/{}/{}.pdf".format(year_dir, file_date))
+		wget.download(cover_url, "{}/{}.pdf".format(year_dir, file_date))
 	except:
 		continue
 
