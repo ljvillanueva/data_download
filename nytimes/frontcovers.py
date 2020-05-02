@@ -21,7 +21,7 @@ for date_object in date_array:
 	file_date = date_object.strftime("%Y-%m-%d")
 	if os.path.isdir("{}".format(year_dir)) == False:
 		os.mkdir("{}".format(year_dir))
-	if os.isfile("{}/{}.pdf".format(year_dir, file_date)):
+	if os.path.isfile("{}/{}.pdf".format(year_dir, file_date)):
 		continue
 	print("\nDownloading {} to {}\n".format(cover_url, "{}/{}.pdf".format(year_dir, file_date)))
 	try:
