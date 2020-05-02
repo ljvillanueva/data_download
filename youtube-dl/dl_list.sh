@@ -1,5 +1,5 @@
 #!/bin/bash
-# Doanload youtube list
+# Download youtube list
 #
 # ./dl_list.sh [ID_of_list]
 
