@@ -169,7 +169,7 @@ def process_podcast(pod: str, url: str, headers: dict, fromdate, args: Options):
         try:
             process_podcast_item(pod, item, headers, fromdate, args)
         except SkipPodcast:
-            break
+            continue
 
 
 class SkipPodcast(Exception):
