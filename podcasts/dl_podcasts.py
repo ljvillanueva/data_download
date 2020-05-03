@@ -6,4 +6,9 @@ import settings
 opt = getpodcast.options(
     root_dir = settings.pod_root)
 
-getpodcast.getpodcast(settings.podcasts, opt)
+for podcast in settings.podcasts:
+	try:
+		getpodcast.getpodcast(podcast, opt)
+	except:
+		print("Problem with {}".format(podcast))
+		continue
