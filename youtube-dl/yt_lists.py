@@ -6,14 +6,12 @@ import os, subprocess, sys, shutil
 
 import settings
 
-playlists = settings.playlists
+#shutil.copyfile("dl_list.sh", "{}/dl_list.sh".format(settings.dest))
+#os.chdir(settings.dest)
 
-shutil.copyfile("dl_list.sh", "{}/dl_list.sh".format(settings.dest))
-os.chdir(settings.dest)
-
-for playlist in playlists:
+for playlist in settings.playlists:
 	try:
-		p = subprocess.Popen(['bash', 'dl_list.sh', playlist], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+		p = subprocess.Popen(['bash', 'dl_list.sh', settings.dest, playlist], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 		(out,err) = p.communicate()
 		if p.returncode != 0:
 			print("Error: {}\n{}".format(out, err))
