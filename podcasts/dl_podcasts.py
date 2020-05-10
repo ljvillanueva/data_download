@@ -14,6 +14,10 @@ from subprocess import Popen, PIPE, CalledProcessError
 import settings
 
 
+#Allowed characters for filenames, based on https://stackoverflow.com/a/7406369
+keepcharacters = (' ', '.', '_', '-', 'á', 'é', 'í', 'ó', 'ú', 'ñ')
+
+
 #Get settings
 podcasts = settings.podcasts
 if type(podcasts) != dict:
@@ -26,6 +30,8 @@ pod_dir = settings.pod_dir
 if os.path.isdir(pod_dir) == False:
     print("Error: Path {} not found.".format(pod_dir))
     sys.exit(1)
+if pod_dir[len(pod_dir) - 1:] == '/':
+    pod_dir = pod_dir[:len(pod_dir) - 1]
 dl_limit = settings.dl_limit
 if dl_limit == "":
     print("Error: dl_limit is empty.")
@@ -59,8 +65,10 @@ for key in podcasts:
         ep_title = entry.title
         #Remove closing period
         if ep_title[len(ep_title) - 1:] == '.':
-            ep_title = ep_title[len(ep_title)]
-        ep_title = ep_title.strip().replace(' ', '_').replace(':', '-').replace('/', '-').replace(';', '-')
+            ep_title = ep_title[:len(ep_title) - 1]
+        #Remove other marks
+        ep_title = "".join(c for c in ep_title if c.isalnum() or c in keepcharacters).strip()
+        #ep_title = ep_title.strip().replace(' ', '_').replace(':', '-').replace('/', '-').replace(';', '-')
         #Trim long names
         if len(ep_title) > 60:
         	ep_title = ep_title[0:60]
