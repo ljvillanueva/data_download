@@ -98,5 +98,7 @@ for key in podcasts:
                     for line in p.stdout:
                         print(line, end='')
                 if p.returncode != 0:
-                    raise CalledProcessError(p.returncode, p.args)
+                    continue
+                    #raise CalledProcessError(p.returncode, p.args)
+                    #sys.exit(1)
 
