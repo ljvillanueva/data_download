@@ -19,7 +19,7 @@ for feed in feeds:
 		if os.path.isdir(category) == False:
 			os.mkdir(category)
 		for entry in d.entries:
-			book_title = entry.title_detail['value'].replace("/", "-")[:20]
+			book_title = entry.title_detail['value'].replace("/", "-").replace(":", "-")[:46]
 			entry_link = entry.link.split("/")
 			book_link = entry_link[len(entry_link) - 1]
 			book_file = "{category}/{book_title}.{year}.pdf".format(category = category, book_title = book_title, year = entry['published_parsed'][0])
